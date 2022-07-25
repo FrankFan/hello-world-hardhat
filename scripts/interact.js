@@ -1,11 +1,12 @@
 const { ethers } = require("ethers");
 const contract = require("../artifacts/contracts/HelloWorld.sol/HelloWorld.json");
 
-const { API_KEY, CONTRACT_ADDRESS, PRIVATE_KEY } = process.env;
+const { API_KEY, CONTRACT_ADDRESS, PRIVATE_KEY, POLYGON_TESTNET_API_KEY } = process.env;
 
 
 // Provider
-const alchemyProvider = new ethers.providers.AlchemyProvider(network = "goerli", API_KEY);
+// const alchemyProvider = new ethers.providers.AlchemyProvider(network = "goerli", API_KEY);
+const alchemyProvider = new ethers.providers.AlchemyProvider(network = 'maticmum', POLYGON_TESTNET_API_KEY)
 
 // Signer
 const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
